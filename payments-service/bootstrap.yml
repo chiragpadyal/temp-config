@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: payment-service  # This will be the name registered in Eureka
+
+  cloud:
+    config:
+      uri: http://localhost:8888  # URL of the Spring Cloud Config Server
+      fail-fast: true  # Fail immediately if Config Server is unreachable
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL of the Eureka Discovery Server

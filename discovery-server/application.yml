@@ -1,0 +1,29 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  # The discovery server should not register itself
+    fetch-registry: false        # The discovery server doesn't need to fetch registry
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus  # Expose the prometheus metrics endpoint
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  server:
+    port: 8761  # Change this port based on the service
+    zipkin:
+      base-url: http://zipkin-server:9411
+      enabled: true
+      sleuth:
+        sampler:
+          probability: 1.0  # 100% tracing
