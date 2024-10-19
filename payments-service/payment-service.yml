@@ -1,6 +1,0 @@
-payment-service:
-  application:
-    name: Payment Service
-  payment:
-    max-limit: 10000
-    currency: USD

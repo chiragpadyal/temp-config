@@ -1,0 +1,6 @@
+zipkin:
+  base-url: http://zipkin-server:9411
+  enabled: true
+  sleuth:
+    sampler:
+      probability: 1.0  # 100% tracing

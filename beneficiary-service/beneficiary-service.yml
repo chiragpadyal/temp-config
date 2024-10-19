@@ -1,6 +1,0 @@
-beneficiary-service:
-  application:
-    name: Beneficiary Service
-  beneficiary:
-    max-beneficiaries: 5
-    notification-email: beneficiary@bank.com
