@@ -31,7 +31,7 @@ management:
       prometheus:
         enabled: true
   server:
-    port: 8083  # Change this port based on the service
+    port: 8091  # Change this port based on the service
 
     zipkin:
       base-url: http://zipkin-server:9411
