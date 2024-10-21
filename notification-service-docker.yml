@@ -12,8 +12,8 @@ spring:
             enable: true
 
   kafka:
-    bootstrap-servers: kafka:9093  # Kafka broker address (replace if needed)
     consumer:
+      bootstrap-servers: kafka:9093  # Kafka broker address (replace if needed)
       group-id: notification-group  # Kafka consumer group ID
       auto-offset-reset: earliest   # Read from the beginning of the topic if no offset is found
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
