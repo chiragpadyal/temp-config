@@ -27,6 +27,11 @@ spring:
           sleuth:
             sampler:
               probability: 1.0  # 100% tracing
+management:
+    endpoints:
+        web:
+            exposure:
+                include: [ "prometheus" ]
 server:
   port: 8083  # Change this port based on the service
 eureka:
