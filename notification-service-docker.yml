@@ -1,0 +1,46 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com  # Replace with your actual email
+    password: your-email-password   # Replace with your actual password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  kafka:
+    bootstrap-servers: kafka:9093  # Kafka broker address (replace if needed)
+    consumer:
+      group-id: notification-group  # Kafka consumer group ID
+      auto-offset-reset: earliest   # Read from the beginning of the topic if no offset is found
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus  # Expose the prometheus metrics endpoint
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  server:
+    port: 8091  # Change this port based on the service
+
+    zipkin:
+      base-url: http://zipkin-server:9411
+      enabled: true
+      sleuth:
+        sampler:
+          probability: 1.0  # 100% tracing
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
