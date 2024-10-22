@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://host.docker.internal:5432/adcb_bank
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update  # Or use 'create' or 'validate' depending on your needs
+    show-sql: true
+server:
+  port: 8092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/

@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://host.docker.internal:5432/adcb_bank
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update  # Or use 'create' or 'validate' depending on your needs
+    show-sql: true
+
+  management:
+    endpoints:
+      web:
+        exposure: 
+          include: health,info,prometheus  # Expose the Prometheus metrics endpoint
+    endpoint:
+      health:
+        show-details: always
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+        zipkin:
+          base-url: http://zipkin-server:9411
+          enabled: true
+          sleuth:
+            sampler:
+              probability: 1.0  # 100% tracing
+management:
+    endpoints:
+        web:
+            exposure:
+                include: [ "prometheus" ]
+server:
+  port: 8083  # Change this port based on the service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
